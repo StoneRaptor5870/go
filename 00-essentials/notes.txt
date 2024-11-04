@@ -1,0 +1,1 @@
+GO has modules and in them it has pakages (single or mutiples) and packages can be spilit into mutiple files.
