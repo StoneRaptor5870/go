@@ -1,0 +1,5 @@
+Splitting code across multiple files
+Splitting files across multiple packages
+importing & using custom packages
+To export stuff from different packages the functions variables and everything thing should start with a capital letter.
+no concept of export keyword in go.
