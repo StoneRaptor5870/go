@@ -13,6 +13,20 @@ type saver interface { // convention to add -er (saver) if only one method is th
 	Save() error
 }
 
+// type displayer interface {
+// 	Display()
+// }
+
+// type outputtable interface {
+// 	Save() error
+// 	Display()
+// }
+
+type outputtable interface { // embedded interface
+	saver
+	Display()
+}
+
 func main() {
 	title, content := getNoteData()
 	todoText := getUserInput("Todo text: ")
@@ -24,8 +38,7 @@ func main() {
 		return
 	}
 
-	todo.Display()
-	err = saveData(todo)
+	err = outputData(todo)
 
 	if err != nil {
 		fmt.Println(err)
@@ -39,13 +52,12 @@ func main() {
 		return
 	}
 
-	userNote.Display()
-	err = saveData(userNote)
+	outputData(userNote)
+}
 
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
+func outputData(data outputtable) error {
+	data.Display()
+	return saveData(data)
 }
 
 func saveData(data saver) error {
