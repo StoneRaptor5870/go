@@ -28,6 +28,8 @@ type outputtable interface { // embedded interface
 }
 
 func main() {
+	printSomething("Notes & Todo App.")
+
 	title, content := getNoteData()
 	todoText := getUserInput("Todo text: ")
 
@@ -53,6 +55,22 @@ func main() {
 	}
 
 	outputData(userNote)
+}
+
+func printSomething(value interface{}) { // interface {} is for any value
+	switch value.(type) { // type switches
+	case int:
+		fmt.Println("Interger:", value)
+	case string:
+		fmt.Println(value)
+	}
+
+	/* typedVal, ok := value.(int)         type info from values
+	   if ok {
+	       fmt.Println("Interger", typedVal)
+		   return
+	   }
+	*/
 }
 
 func outputData(data outputtable) error {
