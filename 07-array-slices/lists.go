@@ -43,6 +43,11 @@ func main() {
 	fmt.Println(costs)
 	fmt.Println(updatedCosts)
 
+	// unpacking lists or spreading
+	discountPrices := []float64{2.5, 5.6, 9.5}
+	costs = append(costs, discountPrices...)
+	fmt.Println(costs)
+
 	// practice
 	fmt.Println("--------------------------------------------")
 
