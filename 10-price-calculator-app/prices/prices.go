@@ -51,7 +51,7 @@ func (job *TaxIncludedPriceJob) Process() error {
 func NewTaxIncludedPriceJob(iom iomanager.IOManager, taxRate float64) *TaxIncludedPriceJob {
 	return &TaxIncludedPriceJob{
 		IOManager:   iom,
-		InputPrices: []float64{10, 20, 30},
+		InputPrices: []float64{},
 		TaxRate:     taxRate,
 	}
 }
